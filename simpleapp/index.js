@@ -5,6 +5,25 @@ var AWS = require('aws-sdk'),
     decodedBinarySecret;
 
 console.log("adjusted git ignore bala blah")
+
+var client = new AWS.S3({
+    region: region
+})
+
+var params = {
+    Bucket: "dppuligu-oregon",
+    Key: "config.yaml",    
+}
+
+client.getObject(params, function(err, data) {
+    if (err) {
+        console.log(err, err.stack)
+    }
+    else {
+        console.log(data)
+    }
+})
+
 // var client = new AWS.SecretsManager({
 //     region: region
 // })
