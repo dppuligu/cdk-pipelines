@@ -6,7 +6,12 @@ var AWS = require('aws-sdk'),
 
 console.log("adjusted git ignore bala blah")
 
-console.log(process.env)
+var artifactzip = process.env.CODEBUILD_SOURCE_VERSION
+
+var bucket = artifactzip.slice(14, artifactzip.indexOf('/'))
+
+console.log(artifactzip)
+console.log(bucket)
 // var client = new AWS.S3({
 //     region: region
 // })
