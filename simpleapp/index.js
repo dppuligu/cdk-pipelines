@@ -17,7 +17,7 @@ var params = {
 
 client.getObject(params, function(err, data) {
     if (err) {
-        console.log(err, err.stack)
+        console.log(err)
     }
     else {
         console.log(data)
