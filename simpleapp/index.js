@@ -6,23 +6,26 @@ var AWS = require('aws-sdk'),
 
 console.log("adjusted git ignore bala blah")
 
-var client = new AWS.S3({
-    region: region
-})
+console.log(process.env)
+// var client = new AWS.S3({
+//     region: region
+// })
 
-var params = {
-    Bucket: "dppuligu-oregon",
-    Key: "config.yaml",    
-}
+// var params = {
+//     Bucket: "dppuligu-oregon",
+//     Key: "config.yaml",
+//     SSECustomerAlgorithm: "AES256",
+//     SSECustomerKey: "949ea23e-5bde-4c14-a168-5b37f559f8c4"
+// }
 
-client.getObject(params, function(err, data) {
-    if (err) {
-        console.log(err)
-    }
-    else {
-        console.log(data)
-    }
-})
+// client.getObject(params, function(err, data) {
+//     if (err) {
+//         console.log(err)
+//     }
+//     else {
+//         console.log(data)
+//     }
+// })
 
 // var client = new AWS.SecretsManager({
 //     region: region
