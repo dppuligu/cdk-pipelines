@@ -8,29 +8,27 @@ console.log("adjusted git ignore bala blah")
 
 var artifactzip = process.env.CODEBUILD_SOURCE_VERSION
 
-var bucket = artifactzip.slice(14, artifactzip.indexOf('/'))
+var bucket = artifactzip.slice(13, artifactzip.indexOf('/'))
 
 console.log(artifactzip)
 console.log(bucket)
-// var client = new AWS.S3({
-//     region: region
-// })
+var client = new AWS.S3({
+    region: region
+})
 
-// var params = {
-//     Bucket: "dppuligu-oregon",
-//     Key: "config.yaml",
-//     SSECustomerAlgorithm: "AES256",
-//     SSECustomerKey: "949ea23e-5bde-4c14-a168-5b37f559f8c4"
-// }
+var params = {
+    Bucket: bucket,
+    Key: "config.yaml"
+}
 
-// client.getObject(params, function(err, data) {
-//     if (err) {
-//         console.log(err)
-//     }
-//     else {
-//         console.log(data)
-//     }
-// })
+client.getObject(params, function(err, data) {
+    if (err) {
+        console.log(err)
+    }
+    else {
+        console.log(data)
+    }
+})
 
 // var client = new AWS.SecretsManager({
 //     region: region
